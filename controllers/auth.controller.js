@@ -56,7 +56,10 @@ const login = (req,res) => {
 }
 
 const logout = (req,res) => {
-    
+    res.clearCookie("access_token",{
+        sameSite:"none",
+        secure:true
+    }).status(200).json("user has been logout !")
 }
 
 module.exports = {register,login,logout}
