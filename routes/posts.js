@@ -6,7 +6,7 @@ router.get("/", postController.getAllPosts)
 router.get("/:id", postController.getOnePost)
 router.post("/", postController.addPost)
 router.delete("/:id", postController.deletePost)
-router.update("/:id", postController.updatePost)
+router.post("/:id", postController.updatePost)
 
 
 module.exports = router

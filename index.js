@@ -11,19 +11,20 @@ app.use(express.json())
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, '../client/public/upload')
+      cb(null, path.join(__dirname, '../uploads/images'))
     },
     filename: function (req, file, cb) {
-      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-      cb(null, Date.now()+file.originalname)
+      const name = Date.now() + '-' + file.originalname
+      cb(null, name)
     }
   })
   
  
 
-const upload = multer({ storage })
+const upload = multer({ storage:storage })
+
 app.post('/api/upload', upload.single('file'), function (req, res) {
-    const file = req.file
+    const file = req.file 
     res.status(200).json(file.filename)
 })
 
