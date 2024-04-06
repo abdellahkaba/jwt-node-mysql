@@ -3,3 +3,4 @@ npm i express mysql nodemon
 npm install bcrypt
 npm install jsonwebtoken
 npm install cookie-parser
+npm i multer
